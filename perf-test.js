@@ -87,7 +87,28 @@ function checkIfUpdatedLiveHash(markData) {
 
 }
 
-function checkIfUpdatedStringify(markData) {
+function checkIfUpdatedStoredStringify(markData) {
+    var mark, newMarkData;
+
+    newMarkData = markData;
+
+    for (mark in newMarkData) {
+        if (markData[mark.data.nineFigureNumber]) {
+            if (JSON.stringify(mark.data) === markData[mark.data.nineFigureNumber].dataStringify) {
+                console.log('Matched');
+            } else {
+                console.log('Different');
+            }
+        } else {
+            console.log('Mark not found');
+        }
+    }
+
+
+}
+
+
+function checkIfUpdatedLiveStringify(markData) {
     var mark, newMarkData;
 
     newMarkData = markData;
